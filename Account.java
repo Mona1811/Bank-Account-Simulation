@@ -15,18 +15,18 @@ class Account {
         this.accountHolder = accountHolder;
         this.balance = balance;
         this.transactionHistory = new ArrayList<>();
-        transactionHistory.add("🟢 Account created with balance: " + balance);
+        transactionHistory.add(" Account created with balance: " + balance);
     }
 
     // Deposit Method
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
-            String record = "✅ Deposited: " + amount + " | Balance: " + balance;
+            String record = " Deposited: " + amount + " | Balance: " + balance;
             transactionHistory.add(record);
             System.out.println(record);
         } else {
-            System.out.println("❌ Deposit amount must be positive.");
+            System.out.println(" Deposit amount must be positive.");
         }
     }
 
@@ -34,11 +34,11 @@ class Account {
     public void withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
             balance -= amount;
-            String record = "✅ Withdrawn: " + amount + " | Balance: " + balance;
+            String record = " Withdrawn: " + amount + " | Balance: " + balance;
             transactionHistory.add(record);
             System.out.println(record);
         } else {
-            System.out.println("❌ Insufficient balance or invalid amount.");
+            System.out.println(" Insufficient balance or invalid amount.");
         }
     }
 
@@ -47,10 +47,10 @@ class Account {
         if (amount > 0 && amount <= balance) {
             this.withdraw(amount);
             target.deposit(amount);
-            String record = "🔄 Transferred " + amount + " to " + target.getAccountHolder();
+            String record = " Transferred " + amount + " to " + target.getAccountHolder();
             transactionHistory.add(record);
         } else {
-            System.out.println("❌ Transfer failed. Check amount or balance.");
+            System.out.println(" Transfer failed. Check amount or balance.");
         }
     }
 
@@ -65,18 +65,19 @@ class Account {
 
     // Display Account Info
     public void displayAccount() {
-        System.out.println("📌 Account Holder: " + accountHolder);
-        System.out.println("📌 Account Number: " + accountNumber);
-        System.out.println("📌 Balance: " + balance);
+        System.out.println(" Account Holder: " + accountHolder);
+        System.out.println(" Account Number: " + accountNumber);
+        System.out.println(" Balance: " + balance);
         System.out.println("------------------------------------");
     }
 
     // Show Transaction History
     public void showTransactionHistory() {
-        System.out.println("\n📜 Transaction History for " + accountHolder + ":");
+        System.out.println("\n Transaction History for " + accountHolder + ":");
         for (String record : transactionHistory) {
             System.out.println(record);
         }
         System.out.println("------------------------------------");
     }
+
 }
